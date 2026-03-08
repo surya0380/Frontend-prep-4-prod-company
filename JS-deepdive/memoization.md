@@ -92,5 +92,19 @@ Why? Each `{}` is a **new object**, so they're different keys. The cache sees th
 - Good for memoization: numbers, strings (works)
 - Bad for memoization: objects, arrays (fails)
 
+## Interview Q&A
+
+**Q: Why is memoization powerful?**
+A: "It turns O(2^n) operations (exponential) into O(n) (linear) by avoiding redundant calculations. Example: Fibonacci(40) goes from 2+ seconds to milliseconds."
+
+**Q: When is memoization dangerous?**
+A: "When functions have side effects (API calls, database queries, logging). Don't cache if the result should change based on external state."
+
+**Q: What's the memory tradeoff?**
+A: "You use extra RAM to store cached results. Dangerous if cache grows unbounded (e.g., memoizing with infinite unique inputs). Solution: limit cache size with LRU (Least Recently Used) eviction."
+
+**Q: How does React's useMemo differ?**
+A: "useMemo is React-specific and re-computes if dependencies change. It caches during a single render. JavaScript memoization persists across renders/calls until garbage collected."
+
 
 ## visit GFE-75's Memoize as well
