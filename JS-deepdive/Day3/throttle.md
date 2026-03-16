@@ -16,6 +16,37 @@ function myThrottle(func, delay){
 }
 ```
 
+**another approach**
+
+```javascript
+function myThrottle(func, delay){
+    let flag = true;
+
+    return function(...args){
+        if(flag){
+            func.apply(this, args);
+                flag = false;
+                setTimeout(() => {
+                    flag = true;
+                }, delay)
+            )
+        }
+    }
+}
+
+```
+ex:
+
+const myFunc = () => console.log("resizing")
+
+window.addEventListener("resize", myFunc) // this will trigger on every pixel change 10000 times
+
+now with throttle:
+const throtFunc = myThrottle(myFunc, 300)
+
+window.addEventListener("resize", throtFunc) // this will trigger at most every 300ms, even if the user is resizing continuously
+```
+
 ## miscellanous
 
 1. Debounce vs Throttle
@@ -59,3 +90,5 @@ User scrolling continuously
 ## Quick Memory Trick:
 Debounce = Wait for silence (search input)
 Throttle = Heartbeat pattern (scroll/resize)
+
+sources: https://www.youtube.com/watch?v=81NGEXAaa3Y
