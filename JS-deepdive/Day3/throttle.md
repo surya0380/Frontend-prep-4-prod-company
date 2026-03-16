@@ -16,7 +16,7 @@ function myThrottle(func, delay){
 }
 ```
 
-**another approach**
+**another approach** --> use this approach only
 
 ```javascript
 function myThrottle(func, delay){
