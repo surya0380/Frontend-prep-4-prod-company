@@ -45,7 +45,7 @@ function flatIterative(arr) {
     if (Array.isArray(item)) {
       stack.push(...item); // If array, spread back into stack
     } else {
-      result.unshift(item); // If primitive, add to result (at start)
+      result.unshift(item); // If primitive/value, add to result (at start)
     }
   }
 
