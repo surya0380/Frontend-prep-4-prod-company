@@ -1,4 +1,4 @@
-## Deep Clone
+## Deep Clone / Deep copy
 
 - Deep clone creates a completely independent copy of an object, including all nested objects and arrays, so changes to the copy don't affect the original.
 
